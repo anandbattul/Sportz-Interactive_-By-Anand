@@ -1,5 +1,5 @@
 import React from 'react';
-import CardList from './CardList';
+// import CardList from './CardList';
 // import robots from './data';
 import SearchBox from './SearchBox';
 
@@ -50,34 +50,36 @@ class App extends React.Component{
     // console.log("Component did mount is running...")
     // await this.setState({robots : robots})
     console.log("Component Did Mount is running");
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://api.npoint.io/20c1afef1661881ddc9c')
         .then(response => response.json())
         .then(users => {
-          // console.log(users);
+          console.log(users.playerList);
           this.setState({robots : users})
         })
   }
 
 
   render(){
-    console.log('Render is running...');
 
-    const {robots, searchField} = this.state;
-
-    const filteredRobots = robots.filter((robot) => {
-        return robot.name.toLowerCase().includes(searchField.toLowerCase())
-    })
-
-    if (!robots.length) {    // robots.length === 0  means we want to run
-      return <h1>Loading....</h1>
-    }
+// 
+    // console.log('Render is running...');
+// 
+    // const {robots, searchField} = this.state;
+// 
+    // const filteredRobots = robots.filter((robot) => {
+        // return robot.name.toLowerCase().includes(searchField.toLowerCase())
+    // })
+// 
+    // if (!robots.length) {    // robots.length === 0  means we want to run
+      // return <h1>Loading....</h1>
+    // }
      
     return (
       <div className="tc">
         <h1>RoboProject</h1>
         <SearchBox onInputChange={this.onInputChange}/> 
-        
-        <CardList robots={filteredRobots}/>
+        {/* <CardList/> */}
+        {/* <CardList robots={filteredRobots}/> */}
       </div>
     );
   }
