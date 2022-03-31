@@ -1,7 +1,12 @@
 import React from 'react';
 // import CardList from './CardList';
 // import robots from './data';
-import SearchBox from './SearchBox';
+// import SearchBox from './SearchBox';
+// import photo from "../src/player-images"
+// F:/Sportz-Interactive_-By-Anand/sport/src/player-images
+// import photo from "./images/1.jpg";
+
+
 
 
 
@@ -28,6 +33,7 @@ class App extends React.Component{
       // robots : robots,
       robots : [],
       searchField : '',
+      // const [data,setsatat]
     }
 
     console.log('Constructor is running...')
@@ -75,12 +81,10 @@ class App extends React.Component{
     // }
      
     return (
-      <div className="tc">
-        <h1>RoboProject</h1>
-        <SearchBox onInputChange={this.onInputChange}/> 
-        {/* <CardList/> */}
-        {/* <CardList robots={filteredRobots}/> */}
-      </div>
+     
+      this.users.map((img)=>{
+        <div>{img.teamList.TID}</div>
+      })   
     );
   }
 }
