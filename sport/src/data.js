@@ -1,22 +1,22 @@
 const data = [
     {
         id : 1,
-        name : "Tirth Shah",
+        name : "Sagar Dussa",
         email : "tirthshah@gmail.com"
     },
     {
         id : 2,
-        name : "Sagar Shah",
+        name : "Anand Battul",
         email : "sagarshah@gmail.com"
     },
     {
         id : 3,
-        name : "Priya Shah",
+        name : "Umesh Gardas",
         email : "priyashah@gmail.com"
     },
     {
         id : 4,
-        name : "Manjusha Mekala",
+        name : "Naresh Mekala",
         email : "manjushamekala@gmail.com"
     },
     {
@@ -39,6 +39,12 @@ const data = [
         name : "Narendra Modi",
         email : "narendramodi@gmail.com"
     },
+    {
+        id : 8,
+        name : "Narendra Modi",
+        email : "narendramodi@gmail.com"
+    },
+    
 ]
 
 export default data;
