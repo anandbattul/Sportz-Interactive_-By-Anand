@@ -1,56 +1,93 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import CardList from "./CardList";
-// import Card from "./Card";
-import SearchBox from './SearchBox';
-// import images from "../public/player-images/63706.jpg"
+// import robots from './data';
+import SearchBox from "./SearchBox";
 
-export default function App() {
-  const [data, setdata] = useState([]);
-  const [search , setsearch]=useState("");
+// function App() {
+//   return (
+//     <div className="tc">
+//       <h1>RoboProject</h1>
+//       <CardList robots={robots}/>
+//     </div>
+//   );
+// }
 
-  const onInputChange = "";
-  // console.log(data);
+//method 1
 
-  // onInputChange = async(val) => {
-    // await this.setState({searchField : val})
-    // console.log(this.state.searchField);
-            //  }  
+//method 2
 
-  useEffect(() => {
-    fetch("https://api.npoint.io/20c1afef1661881ddc9c").then((result) => {
-      result.json().then((res) => {
-        setdata(res.playerList);
+//method 3
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      // robots : robots,
+      robots: [],
+      searchField: "",
+    };
+
+    console.log("Constructor is running...");
+  }
+
+  onInputChange = async (val) => {
+    await this.setState({ searchField: val });
+    console.log(this.state.searchField);
+  };
+
+  // 54 < 65 < 78
+  // 65 > 45 > 34
+
+  // static getDerivedStateFromProps(){
+  //   console.log("getDerivedStateFromProps is running..")
+  // }
+
+  componentDidMount = () => {
+    // console.log("Component did mount is running...")
+    // await this.setState({robots : robots})
+    console.log("Component Did Mount is running");
+    fetch("https://api.npoint.io/20c1afef1661881ddc9c")
+      .then((response) => response.json())
+      .then((users) => {
+        // console.log(users.playerList[0].Id);
+        this.setState({ robots: users.playerList });
       });
+  };
+
+  render() {
+    console.log("Render is running...");
+
+    const { robots, searchField } = this.state;
+
+    const filteredRobots = robots.filter((robot) => {
+      return (
+        robot.PFName.toLowerCase().includes(searchField.toLowerCase()) ||
+        robot.TName.toLowerCase().includes(searchField.toLowerCase()) ||robot.SkillDesc.toLowerCase().includes(searchField.toLowerCase())
+      );
     });
-  }, []);
-  return (
-    <>
-    <div className="tc"  >
-      <h1>PlayerList</h1>
-      <SearchBox onInputChange={onInputChange}/> 
-      <div className=" bg-washed-blue { background-color: var(--washed-blue); }  br3 pa3 ma3  bw3 shadow-5">
 
-    {/* <Card data={data}/> */}
-    {/* <img src={"../src/player-images/63706.jpg"} alt="profile_img_roboproject"/> */}
+    if (!robots.length) {
+      // robots.length === 0  means we want to run
+      return <h1>Loading....</h1>;
+    }
 
-      {data.map((item) => {
-        return (
-          <>
+    return (
+      <div className="tc">
+        <h1>Player List</h1>
+        <SearchBox onInputChange={this.onInputChange} />
 
-      <img src={`./player-images/${item.Id}.jpg`} alt="profile_img_roboproject"/>
-             <h3>{item.TName}</h3>
-             <h3>{item.PFName}</h3>
-            {/* <h1> {item.Id}</h1> */}
-          </>
-        );
-      })}
-      {
-        data.filter(()=>{
-          
-        })
-      }
-       </div>
+        <CardList robots={filteredRobots} />
       </div>
-    </>
-  );
+    );
+  }
 }
+
+// class compoenntName extends React.Component{
+//   render(){
+//     return (
+
+//     )
+//   }
+// }
+
+export default App;
