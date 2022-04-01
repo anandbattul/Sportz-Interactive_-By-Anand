@@ -7,7 +7,7 @@ export default function CardList({robots}) {
         <div>
             {
                 robots.map((robot,index) => {
-                    return <Card id={robot.id} name={robot.name} email={robot.email}/>
+                    return <Card id={robot.id}/>
                 })
             }
         </div>
