@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import CardList from "./CardList";
-// import CardList from "./CardList";
 // import Card from "./Card";
 import SearchBox from './SearchBox';
 // import images from "../public/player-images/63706.jpg"
 
 export default function App() {
   const [data, setdata] = useState([]);
-  const onInputChange = ""
-  console.log(data);
+  const [search , setsearch]=useState("");
+
+  const onInputChange = "";
+  // console.log(data);
 
   // onInputChange = async(val) => {
     // await this.setState({searchField : val})
@@ -26,13 +27,11 @@ export default function App() {
     <>
     <div className="tc"  >
       <h1>PlayerList</h1>
-<SearchBox onInputChange={onInputChange}/> 
-  <CardList />
+      <SearchBox onInputChange={onInputChange}/> 
       <div className=" bg-washed-blue { background-color: var(--washed-blue); }  br3 pa3 ma3  bw3 shadow-5">
 
     {/* <Card data={data}/> */}
     {/* <img src={"../src/player-images/63706.jpg"} alt="profile_img_roboproject"/> */}
-
 
       {data.map((item) => {
         return (
@@ -45,6 +44,11 @@ export default function App() {
           </>
         );
       })}
+      {
+        data.filter(()=>{
+          
+        })
+      }
        </div>
       </div>
     </>
