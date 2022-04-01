@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function SearchBox({onInputChange}) {
+export default function SearchBox(props) {
     return (
         <div>
             <input 
                 type='text' 
-                placeholder="Search Robots" 
+                placeholder="Search PlayerList" 
                 className="pa3 ba b--green bg-lightest-blue"
-                onChange={(event) => onInputChange(event.target.value)}/>
+                onChange={(event) => props.onInputChange(event.target.value)}/>
         </div>
     )
 }
