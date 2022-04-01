@@ -10,11 +10,6 @@ export default function Card({item,no}) {
             <p>$:-&nbsp;&nbsp;{item.Value}</p>
             <p>Upcoming match:-&nbsp;&nbsp;{item.UpComingMatchesList[0].CCode} vs. {item.UpComingMatchesList[0].VsCCode}</p>
             <p>next match time:-&nbsp;&nbsp;{item.UpComingMatchesList[0].MDate}</p>
-
-
-
-
-            
          </div>
     )
 }

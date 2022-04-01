@@ -14,16 +14,7 @@ export default function SearchBox({onInputChange}) {
 
 
 
-// function(event){
-//     onInputChange(event);
-// }
 
 
-// () => {
-//     onInputChange("tirth")
-// }()
 
-// (event) => onInputChange(event)
-
-// onChange={(event) => onInputChange(event)}
 
