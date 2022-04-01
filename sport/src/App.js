@@ -1,22 +1,6 @@
 import React from "react";
 import CardList from "./CardList";
-// import robots from './data';
 import SearchBox from "./SearchBox";
-
-// function App() {
-//   return (
-//     <div className="tc">
-//       <h1>RoboProject</h1>
-//       <CardList robots={robots}/>
-//     </div>
-//   );
-// }
-
-//method 1
-
-//method 2
-
-//method 3
 
 class App extends React.Component {
   constructor() {
@@ -34,13 +18,6 @@ class App extends React.Component {
     await this.setState({ searchField: val });
     console.log(this.state.searchField);
   };
-
-  // 54 < 65 < 78
-  // 65 > 45 > 34
-
-  // static getDerivedStateFromProps(){
-  //   console.log("getDerivedStateFromProps is running..")
-  // }
 
   componentDidMount = () => {
     // console.log("Component did mount is running...")
@@ -62,7 +39,8 @@ class App extends React.Component {
     const filteredRobots = robots.filter((robot) => {
       return (
         robot.PFName.toLowerCase().includes(searchField.toLowerCase()) ||
-        robot.TName.toLowerCase().includes(searchField.toLowerCase()) ||robot.SkillDesc.toLowerCase().includes(searchField.toLowerCase())
+        robot.TName.toLowerCase().includes(searchField.toLowerCase()) ||
+        robot.SkillDesc.toLowerCase().includes(searchField.toLowerCase())
       );
     });
 
@@ -81,13 +59,5 @@ class App extends React.Component {
     );
   }
 }
-
-// class compoenntName extends React.Component{
-//   render(){
-//     return (
-
-//     )
-//   }
-// }
 
 export default App;
